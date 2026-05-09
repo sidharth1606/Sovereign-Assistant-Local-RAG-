@@ -32,9 +32,7 @@ python -m streamlit run ui_app.py
 
 
 
-This is a breakdown of the project suite you've built, written in a way that explains the "What," "How," and "Why"—perfect for a portfolio or an interview.
-
-🛡️ Project 1: Sovereign-RAG
+🛡️ Sovereign-RAG
 
 What is it?
 
