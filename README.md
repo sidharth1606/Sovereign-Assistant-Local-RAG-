@@ -31,6 +31,8 @@ Ensure Ollama is running and pull the necessary models:
 ollama pull llama3.1:8b
 ollama pull nomic-embed-text
 
+---
+##
 ### 2.  2. Inject Dependencies
 ```powershell
 pip install streamlit langchain-ollama langchain-chroma pypdf langchain-text-splitters
