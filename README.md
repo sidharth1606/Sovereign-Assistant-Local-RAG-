@@ -1,42 +1,28 @@
-# 🛡️ SOVEREIGN-RAG: [V1.0_STABLE]
+# 🛡️ SOVEREIGN-INTELLIGENCE: [COLLECTIVE_SUITE_V2.0]
 
-> **STATUS:** `SYSTEM_ENCRYPTED` | **LOCATION:** `LOCAL_HOST` | **ACCESS:** `RESTRICTED`
+> **CORE_MISSION:** Engineering private, autonomous, and local-first AI architectures.
+> **STATUS:** `OPERATIONAL` | **ENCRYPTION:** `AES-256_LOCAL`
 
-**Sovereign-RAG** is a high-performance, 100% offline intelligence layer designed for the 2027 privacy landscape. It bridges the gap between massive document datasets and local LLM execution, ensuring that sensitive data never touches the cloud.
-
----
-
-## ⚡ CORE_SYSTEM_SPECS
-*   **BRAIN_CORE:** `Llama 3.1:8b` via Ollama
-*   **VECTOR_MATRIX:** `ChromaDB` (Persistent)
-*   **NEURAL_EMBEDDINGS:** `nomic-embed-text`
-*   **INTERFACE:** `Streamlit` (Hacker-UI Edition)
-*   **ORCHESTRATION:** `LangChain` (LCEL Architecture)
+This suite contains two flagship autonomous systems designed for the 2027 enterprise landscape, focusing on data sovereignty and agentic task delegation.
 
 ---
 
-## 🛰️ SYSTEM_CAPABILITIES
-*   🟢 **Zero-Cloud Dependency:** 100% private data processing.
-*   🟢 **Semantic Uplink:** Intelligent retrieval beyond keyword matching.
-*   🟢 **Memory Purge:** One-click internal database wipe to avoid Windows file-locks.
-*   🟢 **Hardware Optimized:** Resource caching for low-latency responses.
+## 📂 PROJECT_01: SOVEREIGN-RAG (Document Intelligence)
+*The Single-Agent retrieval system for private document analysis.*
 
----
+### ⚡ CORE_SPECS
+*   **BRAIN:** `Llama 3.1:8b` via Ollama
+*   **VECTOR_MATRIX:** `ChromaDB`
+*   **CAPABILITY:** 100% Offline Semantic Search & Document Q&A
+### Needed Packages
+pip install streamlit langchain-ollama langchain-chroma pypdf langchain-text-splitters
 
-## 🛠️ INSTALLATION_SEQUENCE
 
-### 1. Initialize Neural Engines (Ollama)
-Ensure Ollama is running and pull the necessary models:
+### 🚀 BOOT_SEQUENCE
 ```powershell
+# 1. Initialize Engines
 ollama pull llama3.1:8b
 ollama pull nomic-embed-text
 
----
-##
-### 2.  2. Inject Dependencies
-```powershell
-pip install streamlit langchain-ollama langchain-chroma pypdf langchain-text-splitters
-
-### 3. Boot Protocol
-```powershell
+# 2. Start Assistant
 python -m streamlit run ui_app.py
