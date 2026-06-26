@@ -1,57 +1,67 @@
-# 🛡️ SOVEREIGN-INTELLIGENCE: [COLLECTIVE_SUITE_V2.0]
+# Royal Enfield AI Diagnostic Assistant (Local)
 
-> **CORE_MISSION:** Engineering private, autonomous, and local-first AI architectures.
-> **STATUS:** `OPERATIONAL` | **ENCRYPTION:** `AES-256_LOCAL`
+## What it does
+Local RAG assistant for Royal Enfield motorcycles (v1):
+- User chats with problem description
+- Retrieval from local dataset stored in ChromaDB
+- Gemini generates structured diagnosis/checks/solution strictly from retrieved context
+- Chat history saved in SQLite
 
-This suite contains two flagship autonomous systems designed for the 2027 enterprise landscape, focusing on data sovereignty and agentic task delegation.
+## Requirements
+- Python 3.11+
+- Windows 11
+- Environment variable: `GEMINI_API_KEY`
 
----
-
-## 📂 PROJECT_01: SOVEREIGN-RAG (Document Intelligence)
-*The Single-Agent retrieval system for private document analysis.*
-
-### ⚡ CORE_SPECS
-*   **BRAIN:** `Llama 3.1:8b` via Ollama
-*   **VECTOR_MATRIX:** `ChromaDB`
-*   **CAPABILITY:** 100% Offline Semantic Search & Document Q&A
-### Needed Packages
-pip install streamlit langchain-ollama langchain-chroma pypdf langchain-text-splitters
-
-
-### 🚀 BOOT_SEQUENCE
-```powershell
-# 1. Initialize Engines
-ollama pull llama3.1:8b
-ollama pull nomic-embed-text
-
-# 2. Start Assistant
-python -m streamlit run ui_app.py
-
-
+## Setup
+1) Create venv (project-local)
+```bash
+python -m venv venv
+venv\Scripts\activate
 ```
 
+2) Install dependencies
+```bash
+pip install -r requirements.txt
+```
 
+3) Set Gemini key
+```bash
+set GEMINI_API_KEY=your_key_here
+```
 
-🛡️ Sovereign-RAG
+## Run Backend
+```bash
+uvicorn backend.main:app --reload --port 8000
+```
 
-What is it?
+## Run Frontend (Streamlit)
+```bash
+streamlit run frontend/app.py --server.port 8501
+```
 
-Sovereign-RAG is a Private Local Intelligence Engine. It allows you to talk to your PDF documents without ever sending that data to the internet. It uses Retrieval-Augmented Generation (RAG), which means the AI "reads" your specific files to give accurate answers instead of guessing.
+## How to Use
+1. Start the backend server (see "Run Backend" above)
+2. In a new terminal, start the Streamlit frontend
+3. Open browser to `http://localhost:8501`
+4. Describe your Royal Enfield motorcycle issue
+5. Get AI-generated diagnosis and solutions based on your knowledge base
 
-What is happening under the hood?
+## Project Structure
+```
+├── backend/
+│   └── main.py          # FastAPI backend
+├── frontend/
+│   └── app.py           # Streamlit UI
+├── knowledge_base/
+│   └── royal_enfield_troubleshooting.csv  # RAG dataset
+├── vector_db/           # ChromaDB persisted vectors
+├── data/
+│   └── royal_enfield.db # SQLite chat history
+├── requirements.txt
+└── README.md
+```
 
-Ingestion: When you upload a PDF, the system breaks it into small "chunks" of text.
-
-Embedding: A model (nomic-embed-text) converts those text chunks into mathematical vectors.
-
-Storage: These vectors are stored in ChromaDB, a local vector database.
-
-Retrieval: When you ask a question, the system finds the most relevant math vectors in the database and sends that specific text to the Llama 3.1 model to generate an answer.
-
-How to use it:
-
-Open the dashboard and upload a PDF in the sidebar.
-
-Click "Index Document" to let the AI "learn" the file.
-
-Type any question about the document in the chat box.
+## Notes
+- Dataset: `knowledge_base/royal_enfield_troubleshooting.csv`
+- Vector DB: persisted under `vector_db/`
+- Chat history: stored in `data/royal_enfield.db`
